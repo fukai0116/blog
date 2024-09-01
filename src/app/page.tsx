@@ -1,113 +1,115 @@
-import Image from "next/image";
+import React from 'react';
+import ProductCard from './components/ProductCard';
+
+const products = [
+  {
+    id: 1,
+    name: "薄型・軽量Bluetoothパンタグラフミニキーボード",
+    description: "持ち運びに便利な最薄部が6.5mm、重さが264gの薄型・軽量Bluetooth(R)パンタグラフミニキーボードです。",
+    features: [
+      "最大3台までのデバイスをペアリング可能",
+      "Windows 10、Android 9.0、macOS Catalina(10.15)、iOS13.4対応",
+      "外形寸法: 幅286.5mm×奥行121.5mm×高さ20.4mm",
+      "質量: 約264g（電池を含まず）",
+      "78キー日本語配列",
+      "13種類のマルチファンクションキーを搭載",
+    ],
+    link: "https://amzn.to/4e7m9pu"
+  },
+  {
+    id: 2,
+    name: "タオル研究所の軽量タオル",
+    description: "軽くて薄い新感覚のタオル。薄手なのに肌当たりがふわふわで軽やか、毛羽落ちが少なく吸水性が良いのが特徴です。",
+    features: [
+      "エアリー感のあるタオル",
+      "収納性が高い",
+      "Japan Technology",
+      "綿100%で安心",
+      "パイル立ちの良い繊細な風合い",
+      "洗顔・スキンケアに最適",
+    ],
+    link: "https://amzn.to/4cJywXX"
+  },
+  {
+    id: 3,
+    name: "LG 24インチモニター",
+    description: "24インチIPS モニター、最大解像度 1920×1080、アスペクト比 16:9のハイスペックモニター。",
+    features: [
+      "画面サイズ: 24インチ",
+      "最大解像度: 2560x1440",
+      "アスペクト比: 16:9",
+      "コントラスト比: 1000:1",
+      "輝度: 250cd/㎡",
+      "色域: 72% NTSC",
+      "リフレッシュレート: 100Hz",
+      "HDR10対応",
+    ],
+    link: "https://amzn.to/4cSLp1I"
+  },
+  {
+    id: 4,
+    name: "24インチIPSモニター",
+    description: "24インチIPS モニター、最大解像度1920×1080、アスペクト比16:9、HDR10対応のハイスペックモニター。",
+    features: [
+      "画面サイズ: 24インチ",
+      "最大解像度: 1920×1080",
+      "リフレッシュレート: 100Hz",
+      "応答速度: 5ms",
+      "傾斜角度調整: 上下22°/－5°",
+      "アイケア機能搭載",
+      "HDMI×1、USBType-C2.5W×1",
+      "スピーカー（2Wx2）内蔵",
+    ],
+    link: "https://amzn.to/4dBR0e5"
+  },
+  {
+    id: 5,
+    name: "Logicool G PRO X ゲーミングヘッドセット",
+    description: "プロゲーマーと共同開発した次世代ゲーミングヘッドセット「PRO X」。ハイレベルなプレイに対応する充実の音声伝達機能とクリアで正確なサウンドを提供。",
+    features: [
+      "DTS Headphone:X 2.0 サラウンドサウンド対応",
+      "BLUE VO!CE リアルタイム音声フィルター搭載",
+      "50㎜大口径オーディオドライバー「Pro-G」",
+      "ハイブリッドメッシュ素材のイヤーパッド",
+      "6mmのブームマイク搭載",
+      "高級アルミニウムとスチールヘッドバンド",
+      "Windows 7以降、PlayStation 5、PlayStation 4対応",
+    ],
+    link: "https://amzn.to/3TdbeCC"
+  },
+  {
+    id: 6,
+    name: "Logicool G PRO X SUPERLIGHT ゲーミングマウス",
+    description: "独自のワイヤレス技術LIGHTSPEED搭載、最軽量80gのプロ向けワイヤレスゲーミングマウス。",
+    features: [
+      "LIGHTSPEED ワイヤレステクノロジー搭載",
+      "最軽量80g",
+      "最大解像度25,600DPIのマウスセンサー「Hero 25K」",
+      "LIGHTSYNC RGB対応",
+      "8個のカスタマイズ可能なボタン",
+      "左右対称型デザイン",
+      "Windows7以降、Mac OS 10.11以降対応",
+    ],
+    link: "https://amzn.to/3MvcBc4"
+  }
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="./vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="container mx-auto px-4">
+      <main className="py-8">
+        <h1 className="text-4xl font-bold text-center mb-8">おすすめ電子機器</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
-      </div>
+      </main>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="./next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <footer className="text-center py-4">
+        <p>© 2024 電子機器紹介サイト</p>
+      </footer>
+    </div>
   );
 }
+
